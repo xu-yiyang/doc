@@ -235,3 +235,81 @@
   $('iframe的ID').contents().find("要获取的元素").addClass("srtdl");
   ```
 
+  ## 处理数组数据结构相关方法
+  ```
+    find返回数组或类似结构中满足条件的第一个元素
+    const posts = [
+      {id: 1, title: 'Title 1'},
+      {id: 2, title: 'Title 2'}
+    ];
+    // 找出id为1的posts
+    const title = posts.find(p => p.id === 1).title;
+
+    filter方法可以筛除数组和类似结构中不满足条件的元素，并返回满足条件的元素组成的数组
+    const integers = [1, 2, 3, 4, 6, 7];
+    const evenIntegers = integers.filter(i => i%2 === 0);
+    // evenIntegers的值为[2, 4, 6]
+
+    向数组中新增元素
+    const books = ['Positioning by Trout', 'War by Green'];
+    const newBooks = [...books, 'HWFIF by Carnegie'];
+    // newBooks are now ['Positioning by Trout', 'War by Green', 'HWFIF // by Carnegie']
+
+    如果需要实现用户从购物车中删除物品，但是又不想破坏原来的购物车列表，可以使用filter方法
+    const myId = 6;
+    const userIds = [1, 5, 7, 3, 6];
+    const allButMe = userIds.filter(id => id !== myId);
+    // allButMe is [1, 5, 7, 3]
+
+    修改数组中满足条件的元素对象
+    const posts = [
+      {id: 1, title: 'Title 1'},
+      {id: 2, title: 'Title 2'}
+    ];
+    const updatedPosts = posts.map(p => p.id !== 1 ?
+      p : {...p, title: 'Updated Title 1'}
+    );
+    /*
+    updatedPosts is now 
+    [
+      {id: 1, title: 'Updated Title 1'},
+      {id: 2, title: 'Title 2'}
+    ];
+    */
+
+    找出数组中满足条件的元素
+    const posts = [
+      {id: 1, title: 'Title 1'},
+      {id: 2, title: 'Title 2'}
+    ];
+    const postInQuestion = posts.find(p => p.id === 2);
+    // postInQuestion now holds {id: 2, title: 'Title 2'}
+
+    删除目标对象的一组属性
+    const user = {name: 'Shivek Khurana', age: 23, password: 'SantaCl@use'};
+    const userWithoutPassword = Object.keys(user)
+      .filter(key => key !== 'password')
+      .map(key => {[key]: user[key]})
+      .reduce((accumulator, current) => 
+        ({...accumulator, ...current}),
+        {}
+      )
+    ;
+    // userWithoutPassword becomes {name: 'Shivek Khurana', age: 23}
+    const user = {name: 'Shivek Khurana', age: 23, password: 'SantaCl@use'};
+    const userWithoutPassword = (({name, age}) => ({name, age}))(user);
+
+    将对象转化成请求串
+    const params = {color: 'red', minPrice: 8000, maxPrice: 10000};
+    const query = '?' + Object.keys(params)
+      .map(k =>   
+        encodeURIComponent(k) + '=' + encodeURIComponent(params[k])
+      )
+      .join('&')
+    ;
+    // encodeURIComponent将对特殊字符进行编码。
+    // query is now "color=red&minPrice=8000&maxPrice=10000"
+
+    获取数组中某一对象的下标
+    const requiredIndex = posts.findIndex(obj=>obj.id===131)
+  ```
