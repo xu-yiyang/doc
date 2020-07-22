@@ -313,3 +313,10 @@
     获取数组中某一对象的下标
     const requiredIndex = posts.findIndex(obj=>obj.id===131)
   ```
+
+  ## js精度计算
+  ```
+  parseFloat((数学表达式).toFixed(digits))； // toFixed() 精度参数须在 0 与20 之间
+  // 运行
+  parseFloat((1.0 - 0.9).toFixed(10)) // 结果为 0.1 
+  ```
