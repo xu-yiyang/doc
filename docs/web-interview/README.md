@@ -118,20 +118,20 @@
       * 500（服务器内部出错）
       * 503（服务器在维护）
 ## Eventloop
-  在node中,其中有3个阶段,他们的执行顺序：
-  times -> poll（停留，一直等到有任务才往下一个阶段） -> check
-  对应api:
-  times -> setTimeout/setInterval
-  check -> setImmediate
-  当前阶段后面执行api：
-  nextTick -> 如：times(setTimeout)中写nextTick,执行顺序就是time -> nextTick -> poll
-  promise.then(fn) -> then后立即把fn放入当前队列后面
-  await同promise，resolve后放入队列
-
-  在chrome中，2个阶段：
-  宏任务（一会执行）MacroTask
-  微任务（马上执行）MicroTask
-  对应api:
-  宏任务 -> setTimeout/setInterval
-  微任务 -> promise.then(fn)（then后立即把fn放入当前队列后面）/ await转promise
-  注: new Promise(fn),这个fn是立即执行的，不放进任何阶段
+  在node中,其中有3个阶段,他们的执行顺序：  
+  times -> poll（停留，一直等到有任务才往下一个阶段） -> check  
+  对应api:  
+  times -> setTimeout/setInterval  
+  check -> setImmediate  
+  当前阶段后面执行api：  
+  nextTick -> 如：times(setTimeout)中写nextTick,执行顺序就是time -> nextTick -> poll  
+  promise.then(fn) -> then后立即把fn放入当前队列后面  
+  await同promise，resolve后放入队列  
+    
+  在chrome中，2个阶段：  
+  宏任务（一会执行）MacroTask  
+  微任务（马上执行）MicroTask  
+  对应api:  
+  宏任务 -> setTimeout/setInterval  
+  微任务 -> promise.then(fn)（then后立即把fn放入当前队列后面）/ await转promise  
+  注: new Promise(fn),这个fn是立即执行的，不放进任何阶段  
