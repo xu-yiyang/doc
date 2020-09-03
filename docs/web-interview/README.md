@@ -135,3 +135,8 @@
   宏任务 -> setTimeout/setInterval  
   微任务 -> promise.then(fn)（then后立即把fn放入当前队列后面）/ await转promise  
   注: new Promise(fn),这个fn是立即执行的，不放进任何阶段  
+
+## react diff 原理
+  tree diff：只比较系统层级的节点，发现节点不存在会直接删除
+  component diff：只比较相同组件下的子节点，当不同组件即使子节点相同也会直接删除组件重新渲染
+  element diff：通过key来标识一个组件，来判断是选择删除还是移动操作，比如，a-b组件，当只是位置换成b-a,如果有添加key值，那只进行位置交换
