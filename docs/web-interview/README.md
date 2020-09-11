@@ -136,7 +136,7 @@
   微任务 -> promise.then(fn)（then后立即把fn放入当前队列后面）/ await转promise  
   注: new Promise(fn),这个fn是立即执行的，不放进任何阶段  
 
-## react diff 原理：
+## react diff 原理：(就是一个函数)
   使用tree diff将新旧两棵树逐层对比，找出那些节点需要更新，如果节点是组件使用component diff，如果是标签使用element diff
   component diff：如果不同组件，直接删除替换，相同只更新属性 
   element diff：不同标签直接删除替换，相同只更新属性
