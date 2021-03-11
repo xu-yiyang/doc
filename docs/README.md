@@ -320,3 +320,9 @@
   // 运行
   parseFloat((1.0 - 0.9).toFixed(10)) // 结果为 0.1 
   ```
+  ## 首字母大写
+  ```
+  export function initialUpperCase(value = '') {
+    return value.replace(/^\S/, s => s.toUpperCase());
+  }
+  ```
