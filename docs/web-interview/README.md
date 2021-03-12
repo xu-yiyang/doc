@@ -95,7 +95,7 @@
   注: new Promise(fn),这个fn是立即执行的，不放进任何阶段  
 
 ## react diff 原理：(就是一个函数)
-  使用tree diff将新旧两棵树逐层对比，找出那些节点需要更新，如果节点是组件使用component diff，如果是标签使用element diff
-  component diff：如果不同组件，直接删除替换，相同只更新属性 
-  element diff：不同标签直接删除替换，相同只更新属性
+  使用tree diff将新旧两棵树逐层对比，找出那些节点需要更新，如果节点是组件使用component diff，如果是标签使用element diff  
+  component diff：如果不同组件，直接删除替换，相同只更新属性   
+  element diff：不同标签直接删除替换，相同只更新属性  
   key作用，来标识一个组件，来判断是选择删除还是移动操作，比如，a-b组件，当只是位置换成b-a,如果有添加key值，那只进行位置交换  
