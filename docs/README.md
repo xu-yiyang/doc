@@ -326,3 +326,8 @@
     return value.replace(/^\S/, s => s.toUpperCase());
   }
   ```
+  ## 几种正则
+  ```
+  value.replace(/[^\a-\z\A-\Z0-9\u0020-\u007F]/g, '') // 过滤中文及中文字符
+  /^[\a-\z\A-\Z0-9\u0020-\u007F]+$/i.test(text) // 非中文及字符字符
+  ```
