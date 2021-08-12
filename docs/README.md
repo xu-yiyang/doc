@@ -341,7 +341,7 @@
   /^[\a-\z\A-\Z0-9\u0020-\u007F]+$/i.test(text) // 非中文及字符字符
   ```
 
-  ## 浏览器跨域调试
+  ## mac浏览器跨域调试
   ```
   open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/xuyiyang/MyChromeDevUserData/Contents/ Chrome.app/
   ```
