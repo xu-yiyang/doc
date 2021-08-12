@@ -19,15 +19,15 @@
   onmouseover   onmouseout
 
   ## 文字溢出隐藏省略号
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: hidden;  
+  text-overflow: ellipsis;  
+  white-space: nowrap;  
   ## 多行文字溢出隐藏省略号
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  height: 34px;
+  display: -webkit-box;  
+  -webkit-box-orient: vertical;  
+  -webkit-line-clamp: 2;  
+  overflow: hidden;  
+  height: 34px;  
   overflow: hidden;
 
   ## 实现0.5边框宽度
