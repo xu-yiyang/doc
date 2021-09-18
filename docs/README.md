@@ -345,3 +345,42 @@
   ```
   open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/xuyiyang/MyChromeDevUserData/Contents/ Chrome.app/
   ```
+  ## 箭头生成
+  ```
+  .arrow_top{
+    display:inline-block;
+    border-style:solid;
+    width:8px; // 长度控制
+    height:8px; // 长度控制
+    border-width:1px 1px 0 0; // 厚度
+    border-color:#ccc; // 颜色
+    transform: matrix(0.71,-0.71,0.71,0.71,0,0) // 方向：上
+    transform: matrix(0.71,0.71,-0.71,0.71,0,0) // 方向：右
+    transform: matrix(-0.71,0.71,-0.71,-0.71,0,0) // 方向：下
+    transform: matrix(-0.71,-0.71,0.71,-0.71,0,0) // 方向：左
+  }
+  ```
+  ## 两端对齐，最后一排左对齐
+  ```
+  <ul>
+    <li></li>
+    // i标签用于补齐最后一排，使之最后一排左对齐
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+  </ul>
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    & > i, li {
+      width: 269px;
+    }
+  }
+
+  // 其他方法：https://www.zhangxinxu.com/wordpress/2019/08/css-flex-last-align/
+  ```
