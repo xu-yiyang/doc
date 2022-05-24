@@ -384,3 +384,10 @@
 
   // 其他方法：https://www.zhangxinxu.com/wordpress/2019/08/css-flex-last-align/
   ```
+  ## div禁用
+  ```
+  .disable {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  ```
