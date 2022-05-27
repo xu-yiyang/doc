@@ -391,3 +391,8 @@
     pointer-events: none;
   }
   ```
+  ## input number类型禁止输入e
+  ```
+  <input type="number" onkeypress='return( /[\d]/.test(String.fromCharCode(event.keyCode)))' />
+  ```
+
