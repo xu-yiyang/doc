@@ -384,6 +384,7 @@
 
   // 其他方法：https://www.zhangxinxu.com/wordpress/2019/08/css-flex-last-align/
   ```
+
   ## div禁用
   ```
   .disable {
@@ -391,8 +392,46 @@
     pointer-events: none;
   }
   ```
+
   ## input number类型禁止输入e
   ```
   <input type="number" onkeypress='return( /[\d]/.test(String.fromCharCode(event.keyCode)))' />
   ```
 
+  ## toLocaleString
+  ```
+  // 将数字自动转换成带%的, useGrouping是否分割千分位
+  var a = 0.228423423424234423
+  a.toLocaleString(undefined, {useGrouping: false, style: 'percent'}) // 23%
+
+  // 保留几位小数
+  var a = 123456.6789
+  a.toLocaleString(undefined, {maximumFractionDigits: 2}) //123,456.68
+
+  // 整数补位
+  var a = 1.11
+  a.toLocaleString(undefined, {useGrouping: false, minimumIntegerDigits: 2}) // 01.11
+
+  属性style是不同样式展示选项：默认是decimal。 选项：
+  decimal: 纯数字
+  percent： 百分比
+  unit： 单位格式，配合unit，单位使用。单位取值
+  currency： 用于货币格式，注意这个属性不能单独使用，还得配套使用currency属性
+  var a = 123456.6789, 
+  a.toLocaleString(undefined, {style: 'decimal'}) //123,456.679
+  a.toLocaleString(undefined, {style: 'percent'}) // 12,345,668%
+  a.toLocaleString(undefined, {style: 'currency', currency: 'EUR'}) // €123,456.68
+
+  a.toLocaleString(undefined, {style: 'currency', currency: 'CNY'}) // ¥123,456.68
+  a.toLocaleString(undefined, {style: 'unit', unit: 'acre'}) // 123,456.679英亩
+
+  其中currency和currencyDisplay也可配套使用，前者制定对应的货币，比如 USD 、EUR 与 CNY （不区分大小写的），后者则是货币符号的展示样式，默认currencyDisplay：symbol:
+
+  var a = 123456.6789, 
+  a.toLocaleString(undefined, {style: 'currency', currency: 'CNY', currencyDisplay: 'symbol'}) //  ¥123,456.68
+
+  a.toLocaleString(undefined, {style: 'currency', currency: 'CNY', currencyDisplay: 'code'}) // CNY 123,456.68
+
+  a.toLocaleString(undefined, {style: 'currency', currency: 'CNY', currencyDisplay: 'name'}) // 123,456.68人民币
+
+  ```
