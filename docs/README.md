@@ -339,6 +339,9 @@
   ```
   value.replace(/[^\a-\z\A-\Z0-9\u0020-\u007F]/g, '') // 过滤中文及中文字符
   /^[\a-\z\A-\Z0-9\u0020-\u007F]+$/i.test(text) // 非中文及字符字符
+  'asdasdd{{asdasd}}asdasd{\{asd}}'.match(/\{{.*?\}}/g) // 匹配以{{开头 }}结尾的
+  asda}}sdd{{asda121323sd}}asdasd{\{112}}'.match(/(?<={{).*?(?=}})/g)
+  // 匹配{{}}直接的内容，https://blog.csdn.net/qq_38111015/article/details/80416823?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-80416823-blog-105825552.pc_relevant_multi_platform_whitelistv3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-80416823-blog-105825552.pc_relevant_multi_platform_whitelistv3&utm_relevant_index=6
   ```
 
   ## mac浏览器跨域调试
