@@ -441,3 +441,11 @@
   a.toLocaleString(undefined, {style: 'currency', currency: 'CNY', currencyDisplay: 'name'}) // 123,456.68人民币
 
   ```
+
+  ## 引入svg
+  ```
+  import icons from './assets/icons.svg'
+  <svg className="hero-logo" viewBox="0 0 900 300">
+    <use xlinkHref={`${icons}#electron`} />
+  </svg>
+  ```
